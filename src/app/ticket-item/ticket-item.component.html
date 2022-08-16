@@ -1,6 +1,6 @@
 
 <div class="card text-center">
-  <div class="card-header" [ngStyle]="{'background-color': ticketToShow.handled? 'red' : 'yellow'}">
+  <div class="card-header" [ngStyle]="{'background-color': ticketToShow.handled? 'red' : ticketStatusColor}">
     Status
   </div>
   <div class="card-body">
