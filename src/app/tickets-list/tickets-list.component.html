@@ -1,0 +1,16 @@
+<a routerLink="/add" class="btn btn-primary cart-btn-transform m-3" data-abc="true">New Ticket!</a>
+<div *ngIf="ticketsList.length !==0" class="container">
+  <div class="row gx-6 mt-5 mb-5">
+    <div class="col-6" *ngFor="let meal of ticketsList | paginate:{
+        itemsPerPage:size,
+        currentPage:page,
+        totalItems:count
+      }; let i = index">
+      <app-ticket-item [ticketToShow]="meal"></app-ticket-item>
+    </div>
+  </div>
+  <div *ngIf="ticketsList.length > 5" class="d-flex align-items-center justify-content-center">
+    <pagination-controls previousLabel="" nextLabel="" (pageChange)="onTicketChange($event)">
+    </pagination-controls>
+  </div>
+</div>

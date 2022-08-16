@@ -1,0 +1,14 @@
+
+<div class="card text-center">
+  <div class="card-header">
+    Status
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Ticket ID: {{ticketToShow.id}}</h5>
+    <p class="card-text">{{ticketToShow.phoneNumber}}</p>
+    <input href="#" class="btn btn-success" (click)="HandledClick()" value="Handle" />
+  </div>
+  <div class="card-footer text-muted">
+    {{ticketToShow.creationDate | date}}
+  </div>
+</div>
