@@ -1,14 +1,15 @@
 
-<div class="card text-center">
-  <div class="card-header" [ngStyle]="{'background-color': ticketToShow.handled? 'red' : ticketStatusColor}">
+<div class="card text-center m-3">
+  <div class="card-header" [ngStyle]="{'background-color': ticketToShow.handled? 'tomato' : ticketStatusColor}">
     Status
   </div>
   <div class="card-body">
     <h5 class="card-title">Ticket ID: {{ticketToShow.id}}</h5>
     <p class="card-text">{{ticketToShow.phoneNumber}}</p>
-    <input type="button" class="btn btn-success" (click)="HandledClick()" value="Handle" />
+    <input *ngIf="!ticketToShow.handled" type="button" class="btn btn-success" (click)="HandledClick()" value="Handle" />
   </div>
   <div class="card-footer text-muted">
-    {{ticketToShow.creationDate | date:'full'}}
+    <!-- {{ticketToShow.creationDate | date:'full'}} -->
+    {{(((this.currentTime.getTime() - 7200000)  - tempDate.getTime()) / 60000 ) | number:"1.1-2"}} Minutes ago ..
   </div>
 </div>

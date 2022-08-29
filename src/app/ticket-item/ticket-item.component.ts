@@ -12,9 +12,13 @@ export class TicketItemComponent implements OnInit {
 
   currentTime:Date= new Date();
   ticketStatusColor:string="yellow";
+  tempDate:Date = new Date();
+  fromMins:number=0;
+
   constructor(private ticketService: TicketService) {}
 
   ngOnInit(): void {
+    this.tempDate=new Date(this.ticketToShow.creationDate);
     this.statusColorHandle();
     this.AfterSixtyMinutes();
   }
@@ -38,10 +42,10 @@ export class TicketItemComponent implements OnInit {
   }
 
   statusColorHandle(){
-    this.calcTime(15,"yellow");
-    this.calcTime(30,"green");
-    this.calcTime(45,"blue");
-    this.calcTime(60,"red");
+    this.calcTime(15,"lightyellow");
+    this.calcTime(30,"lightgreen");
+    this.calcTime(45,"lightblue");
+    this.calcTime(60,"tomato");
   }
 
   calcTime(timeToCalc:number , color:string){
